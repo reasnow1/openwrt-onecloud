@@ -28,7 +28,6 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build:
@@ -215,15 +214,20 @@ jobs:
         token: ${{ secrets.TOKEN }}
         
     - name: Delete workflow runs
-      uses: Mattraks/delete-workflow-runs@v2
+      uses: Mattraks/delete-workflow-runs@v2.1.0
       with:
         retain_days: 1
         keep_minimum_runs: 3
 
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.3.4
+    - name: Delete old releases using GitHub CLI
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        keep_latest: 3
-        delete_tags: true
-        token: ${{ secrets.TOKEN }}
+      env:
+        GH_TOKEN: ${{ secrets.TOKEN }}
+      run: |
+        tags=$(gh release list --limit 100 | tail -n +2 | awk '{print $1}')
+        if [ -n "$tags" ]; then
+          for tag in $tags; do
+            echo "Deleting $tag..."
+            gh release delete "$tag" --yes --cleanup-tag
+          done
+        fi
