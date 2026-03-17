@@ -226,8 +226,8 @@ jobs:
       run: |
         tags=$(gh release list --limit 100 | tail -n +2 | awk '{print $1}')
         if [ -n "$tags" ]; then
-          for tag in $tags; do
-            echo "Deleting $tag..."
+          echo "$tags" | while read -r tag; do
+            echo "Deleting release and tag: \"$tag\""
             gh release delete "$tag" --yes --cleanup-tag
           done
         fi
