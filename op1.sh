@@ -24,4 +24,4 @@
 #echo 'src-git helloworld https://github.com/lxiaya/helloworld' >>feeds.conf.default
 echo 'net.netfilter.nf_conntrack_max=65536' >>package/kernel/linux/files/sysctl-nf-conntrack.conf
 echo 'net.core.default_qdisc=fq' >>package/kernel/linux/files/sysctl-tcp-bbr.conf
-#sed -i 's|^src-git luci .*|src-git luci https://git.openwrt.org/project/luci.git^83d6e16a97085dd19741e125196814916acff535|' feeds.conf.default
+sed -i 's|^src-git luci .*|src-git luci https://git.openwrt.org/project/luci.git^83d6e16a97085dd19741e125196814916acff535|' feeds.conf.default
