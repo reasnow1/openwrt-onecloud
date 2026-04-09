@@ -19,9 +19,5 @@
 #echo 'src-git openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
 #echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall.git;main' >>feeds.conf.default
-#echo 'src-git clash https://github.com/lxiaya/onecloud-package' >>feeds.conf.default
-#echo 'src-git dns https://github.com/sbwml/luci-app-mosdns' >>feeds.conf.default
-#echo 'src-git helloworld https://github.com/lxiaya/helloworld' >>feeds.conf.default
 echo 'net.netfilter.nf_conntrack_max=65536' >>package/kernel/linux/files/sysctl-nf-conntrack.conf
 echo 'net.core.default_qdisc=fq' >>package/kernel/linux/files/sysctl-tcp-bbr.conf
-#sed -i 's|^src-git luci .*|src-git luci https://git.openwrt.org/project/luci.git^946fa2f8b01afb17ed5d2de8e12ed449ac265f2f|' feeds.conf.default
