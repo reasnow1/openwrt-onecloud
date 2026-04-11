@@ -19,5 +19,5 @@
 #echo 'src-git openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
 #echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall.git;main' >>feeds.conf.default
-echo 'net.netfilter.nf_conntrack_max=65536' >>package/kernel/linux/files/sysctl-nf-conntrack.conf
-echo 'net.core.default_qdisc=fq' >>package/kernel/linux/files/sysctl-tcp-bbr.conf
+#echo 'net.netfilter.nf_conntrack_max=65536' >>package/kernel/linux/files/sysctl-nf-conntrack.conf
+#echo 'net.core.default_qdisc=fq' >>package/kernel/linux/files/sysctl-tcp-bbr.conf
