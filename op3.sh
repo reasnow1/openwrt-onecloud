@@ -24,8 +24,8 @@
 #
 
 #=================================================
-sudo rm -rf feeds/packages/net/sing-box
-git clone https://github.com/orgx2812/sing-box feeds/packages/net/sing-box
+#sudo rm -rf feeds/packages/net/sing-box
+#git clone https://github.com/orgx2812/sing-box feeds/packages/net/sing-box
 #sudo rm -rf feeds/packages/net/microsocks
 #sudo rm -rf feeds/packages/net/trojan-go
 #sudo rm -rf feeds/packages/net/v2ray-core
@@ -35,7 +35,7 @@ git clone https://github.com/orgx2812/sing-box feeds/packages/net/sing-box
 #git clone https://github.com/orgx2812/xray-core feeds/packages/net/xray-core
 #sudo rm -rf feeds/packages/net/chinadns-ng
 #sudo rm -rf feeds/luci/applications/luci-app-homeproxy
-sudo rm -rf feeds/packages/lang/golang
-git clone https://github.com/orgx2812/golang feeds/packages/lang/golang
+#sudo rm -rf feeds/packages/lang/golang
+#git clone https://github.com/orgx2812/golang feeds/packages/lang/golang
 #sudo rm -rf feeds/packages/net/v2raya
 #git clone https://github.com/orgx2812/v2raya feeds/packages/net/v2raya
