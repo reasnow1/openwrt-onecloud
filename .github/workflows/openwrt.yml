@@ -204,14 +204,11 @@ jobs:
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
-    - name: Upload firmware to Releases
-      uses: softprops/action-gh-release@v2
-      if: steps.tag.outputs.status == 'success' && !cancelled()
+    - name: Upload firmware as artifact
+      uses: actions/upload-artifact@v4
       with:
-        tag_name: ${{ steps.tag.outputs.release_tag }}
-        body_path: release.txt
-        files: ${{ env.FIRMWARE }}/*
-        token: ${{ secrets.TOKEN }}
+        name: firmware
+        path: ${{ env.FIRMWARE }}/*
         
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2
